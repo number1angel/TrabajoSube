@@ -1,5 +1,16 @@
 <?php
 namespace TrabajoSube;
 class Colectivo{
-    
+    public $tarifa;
+    public function __construct($tarifa = 120) {
+        $this->tarifa = $tarifa;
+    }
+    public function pagarCon($Tarjeta): Boleto{
+        if($saldo >= $tarifa){
+            Boleto = new Boleto(($saldo - $tarifa), "Operacion exitosa");
+            return Boleto;
+        }
+        
+    }
+
 }
