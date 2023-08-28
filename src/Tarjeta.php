@@ -6,7 +6,9 @@ class Tarjeta{
         $this->saldo = $saldo;
     }
     public function verSaldo(){
-            return $this->saldo;
+        return $this->saldo;
         }
+    public function cargarSaldo(){
+        
         
     }
