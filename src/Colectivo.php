@@ -6,6 +6,7 @@ class Colectivo{
         $this->tarifa = $tarifa;
     }
     public function pagarCon($Tarjeta): Boleto{
+        $Tarjeta->updateSaldo($tarifa);
         if($saldo >= $tarifa){
             Boleto = new Boleto(($saldo - $tarifa), "Operacion exitosa");
             return Boleto;
