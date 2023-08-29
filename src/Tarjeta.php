@@ -16,7 +16,7 @@ class Tarjeta{
     }
     public function cargarSaldo(){
         if (in_array($carga, $this->cargasPermitidas) {
-            if($carga + $saldo <= 6600){
+            if ($carga + $saldo <= 6600){
                 $this->updateSaldo($carga);
             }
             else{
@@ -28,3 +28,20 @@ class Tarjeta{
         }
         
     }
+
+class franquicia_parcial extends Tarjeta{
+    public function pagarTarifa($tarifa){
+    $this->updateSaldo(-$tarifa/2);
+    }
+}
+
+class franquicia_completa extends Tarjeta{
+    public function pagarTarifa($tarifa){
+    $this->updateSaldo(0);
+    }
+}
+
+
+
+
+            
