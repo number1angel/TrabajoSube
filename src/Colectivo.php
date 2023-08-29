@@ -7,11 +7,13 @@ class Colectivo{
     }
     public function pagarCon($Tarjeta): Boleto{
         $Tarjeta->updateSaldo($tarifa);
-        if($saldo >= $tarifa){
+        if($saldo >= $tarifa || ($saldo - $tarifa) >= 211.84){
             Boleto = new Boleto(($saldo - $tarifa), "Operacion exitosa");
             return Boleto;
         }
-        
+        else{
+            echo "Saldo insuficiente";
+        }
     }
 
 }
