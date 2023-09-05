@@ -26,7 +26,9 @@ class Tarjeta{
         echo "Monto no permitido";
         }
         }
-        
+        public function pagarTarifa($tarifa){
+        $this->updateSaldo(-$tarifa);
+    }
     }
 
 class franquicia_parcial extends Tarjeta{
