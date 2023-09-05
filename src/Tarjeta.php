@@ -26,8 +26,8 @@ class Tarjeta{
         echo "Monto no permitido";
         }
         }
-        public function pagarTarifa($tarifa){
-        $this->updateSaldo(-$tarifa);
+    public function pagarTarifa($tarifa){
+    $this->updateSaldo(-$tarifa);
     }
     }
 
