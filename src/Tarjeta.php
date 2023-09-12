@@ -1,5 +1,9 @@
 <?php
 namespace TrabajoSube;
+
+class SaldoExcedeLimiteException extends \Exception {}
+class MontoNoPermitidoException extends \Exception {}
+
 class Tarjeta{
     private $saldo;
     
@@ -15,15 +19,15 @@ class Tarjeta{
         $this->saldo += $carga;
     }
     public function cargarSaldo(){
-        if (in_array($carga, $this->cargasPermitidas) {
-            if ($carga + $saldo <= 6600){
+        if (in_array($carga, $this->cargasPermitidas)) {
+            if ($carga + $this->saldo <= 6600){
                 $this->updateSaldo($carga);
             }
             else{
-            echo "Saldo supera limite de 6600";
+                throw new SaldoExcedeLimiteException("Saldo supera limite de 6600.");
             }
         else{
-        echo "Monto no permitido";
+            throw new MontoNoPermitidoException("Monto no permitido.");
         }
         }
     public function pagarTarifa($tarifa){

@@ -1,5 +1,8 @@
 <?php
 namespace TrabajoSube;
+
+class SaldoInsuficienteException extends \Exception {}
+
 class Colectivo{
     public $tarifa;
     public function __construct($tarifa = 120) {
@@ -7,13 +10,12 @@ class Colectivo{
     }
     public function pagarCon($Tarjeta): Boleto{
         $saldo = $Tarjeta->verSaldo();
-        if (($saldo - $tarifa) >= -211.84){
-            $Tarjeta->pagarTarifa($tarifa);
-            Boleto = new Boleto(($saldo - $tarifa), "Operacion exitosa");
-            return Boleto;
+        if (($saldo - $this->tarifa) >= -211.84){
+            $Tarjeta->pagarTarifa($this->tarifa);
+            return new Boleto(($saldo - $this->tarifa), "Operacion exitosa");
         }
         else{
-            echo "Saldo insuficiente";
+            throw new SaldoInsuficienteException("Saldo insuficiente");
         }
     }
 
