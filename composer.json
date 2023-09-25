@@ -10,9 +10,9 @@
     }
 }
 
-"name": "phpunit/trabajosube",
-"description": "Trabajo practico AAT",
-"license": "MIT",
+    "name": "phpunit/trabajosube"
+    "description": "Trabajo practico AAT"
+    "license": "MIT"
 
     "scripts": {   		
     "test" : "./vendor/bin/phpunit --coverage-text"		
