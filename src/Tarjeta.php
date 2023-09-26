@@ -34,17 +34,6 @@ class Tarjeta{
     public function pagarTarifa($tarifa){
     $this->updateSaldo(-$tarifa);
     }
-
-class franquicia_parcial extends Tarjeta{
-    public function pagarTarifa($tarifa){
-    $this->updateSaldo(-$tarifa/2);
-    }
-}
-
-class franquicia_completa extends Tarjeta{
-    public function pagarTarifa($tarifa){
-    $this->updateSaldo(0);
-    }
 }
 
 
