@@ -14,7 +14,7 @@ class ColectivoTest extends TestCase{
         $boleto = $colectivo->pagarCon($tarjeta);
         $boleto = $colectivo->pagarCon($tarjeta);
         $this->assertInstanceOf(Boleto::class, $boleto);
-        $this->expectOutputString('Saldo insuficiente');
+        $this->expectExceptionMessage('Saldo insuficiente');
         $colectivo->pagarCon($tarjeta);
         $this->assertInstanceOf(Boleto::class, $boleto);
     }
