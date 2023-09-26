@@ -30,9 +30,9 @@ class Tarjeta{
         else{
             throw new MontoNoPermitidoException("Monto no permitido.");
         }
+    }
     public function pagarTarifa($tarifa){
     $this->updateSaldo(-$tarifa);
-    }
     }
 
 class franquicia_parcial extends Tarjeta{
