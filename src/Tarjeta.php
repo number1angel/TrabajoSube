@@ -26,9 +26,9 @@ class Tarjeta{
             else{
                 throw new SaldoExcedeLimiteException("Saldo supera limite de 6600.");
             }
+        }
         else{
             throw new MontoNoPermitidoException("Monto no permitido.");
-        }
         }
     public function pagarTarifa($tarifa){
     $this->updateSaldo(-$tarifa);
