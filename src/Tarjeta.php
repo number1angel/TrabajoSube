@@ -18,7 +18,7 @@ class Tarjeta{
     public function updateSaldo($carga){
         $this->saldo += $carga;
     }
-    public function cargarSaldo(){
+    public function cargarSaldo($carga){
         if (in_array($carga, $this->cargasPermitidas)) {
             if ($carga + $this->saldo <= 6600){
                 $this->updateSaldo($carga);
