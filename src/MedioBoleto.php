@@ -1,7 +1,7 @@
 <?php
 namespace TrabajoSube;
 
-class franquicia_parcial extends Tarjeta{
+class medioBoleto extends Tarjeta{
     public function pagarTarifa($tarifa){
     $this->updateSaldo(-$tarifa/2);
     }

@@ -6,7 +6,7 @@ use PHPUnit\Framework\TestCase;
 
 class TarjetaTest extends TestCase{ 
     public function testGetlinea(){
-        $tarjeta = new Tarjeta(0);
+        $tarjeta = new Tarjeta();
         
         $this->assertTrue($tarjeta->cargarSaldo(300));
         $pruebaSaldo = $tarjeta->verSaldo();
