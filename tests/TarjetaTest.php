@@ -11,10 +11,10 @@ class TarjetaTest extends TestCase{
         $this->assertTrue($tarjeta->cargarSaldo(300));
         $pruebaSaldo = $tarjeta->verSaldo();
         $this->assertEquals(300, $pruebaSaldo);
-
-        $tarjeta->cargarSaldo(50);
-        $this->expectExceptionMessage('Monto no permitido.');
         
+        $this->expectExceptionMessage('Monto no permitido.');
+        $tarjeta->cargarSaldo(50);
+
         $pruebaSaldo = $tarjeta->verSaldo();
         $this->assertEquals(300, $pruebaSaldo);
     }
