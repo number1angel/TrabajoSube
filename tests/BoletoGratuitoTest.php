@@ -1,5 +1,4 @@
 <?php 
-
 namespace TrabajoSube;
 
 use PHPUnit\Framework\TestCase;
@@ -7,11 +6,8 @@ use PHPUnit\Framework\TestCase;
 class BoletoGratuitoTest extends TestCase{ 
     public function testGetlinea(){
         $boletoGratuito = new boletoGratuito();
-        
         $this->assertTrue($boletoGratuito->cargarSaldo(300));
         $pruebaSaldo = $boletoGratuito->verSaldo();
-        $this->assertEquals(300, $pruebaSaldo);
-        
-        
+        $this->assertEquals(300, $pruebaSaldo);    
     }
 }

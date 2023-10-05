@@ -24,11 +24,11 @@ class Tarjeta{
         }
         else{
             $this->saldo = 6600;
-            $this->excedente += ($carga + $this->saldo) - 6600
+            $this->excedente += ($carga + $this->saldo) - 6600;
         }
     }
     public function cargarSaldo($carga): Bool{
-        if (in_array($carga, $this->cargasPermitidas)) {
+        if (in_array($carga, $this->cargasPermitidas)){
             if ($carga + $this->saldo <= 6600){
                 $this->saldo = 6600;
                 $this->excedente += ($carga + $this->saldo) - 6600
