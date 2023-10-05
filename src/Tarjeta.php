@@ -11,8 +11,6 @@ class Tarjeta{
 
     public function __construct() {
         $this->saldo = 0;
-    }
-    public function __construct() {
         $this->excedente = 0;
     }
     public function verSaldo(){
