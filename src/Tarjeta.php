@@ -31,7 +31,7 @@ class Tarjeta{
         if (in_array($carga, $this->cargasPermitidas)){
             if ($carga + $this->saldo <= 6600){
                 $this->saldo = 6600;
-                $this->excedente += ($carga + $this->saldo) - 6600
+                $this->excedente += ($carga + $this->saldo) - 6600;
                 return true;
             }
             else{
