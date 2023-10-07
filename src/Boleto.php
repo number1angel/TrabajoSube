@@ -10,8 +10,17 @@ class Boleto{
     public $saldo;
     public $id;
 
-    public function __construct($saldo_restante = 0, $status_operacion) {
+    public function __construct($saldo_restante, $status_operacion) {
         $this->saldo_restante = $saldo_restante;
         $this->status_operacion = $status_operacion;
+    }  
+
+    public function mensaje() {
+        if ($saldo < 0) {
+            $this->status_operacion = "Operacion exitosa. Abona saldo negativo";
+        }
+        else {
+            $this->status_operacion = "Operacion exitosa"
+        }
     }  
 }
