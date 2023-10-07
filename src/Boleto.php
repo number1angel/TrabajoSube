@@ -14,13 +14,4 @@ class Boleto{
         $this->saldo_restante = $saldo_restante;
         $this->status_operacion = $status_operacion;
     }  
-
-    public function mensaje() {
-        if ($saldo < 0) {
-            return "Operacion exitosa. Abona saldo negativo";
-        }
-        else {
-            return "Operacion exitosa";
-        }
-    }  
 }
