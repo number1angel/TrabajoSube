@@ -37,7 +37,6 @@ class ColectivoTest extends TestCase{
         $this->assertInstanceOf(Boleto::class, $boleto);
 
         $this->assertTrue($boletoGratuito->cargarSaldo(150));
-        $pruebaSaldo = $boletoGratuito->verSaldo();
         $boleto = $colectivo->pagarCon($boletoGratuito);
         $boleto = $colectivo->pagarCon($boletoGratuito);
         $boleto = $colectivo->pagarCon($boletoGratuito);
@@ -47,6 +46,7 @@ class ColectivoTest extends TestCase{
         $boleto = $colectivo->pagarCon($boletoGratuito);
         $colectivo->pagarCon($boletoGratuito);
         $this->assertInstanceOf(Boleto::class, $boleto);
+        $pruebaSaldo = $boletoGratuito->verSaldo();
         $this->assertEquals(150, $pruebaSaldo);
     }
 }    
