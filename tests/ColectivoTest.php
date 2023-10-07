@@ -9,6 +9,7 @@ class ColectivoTest extends TestCase{
         $colectivo = new Colectivo();
         $tarjeta = new Tarjeta();
         $medioBoleto = new medioBoleto();
+        $boletoGratuito = new boletoGratuito();
         
         $this->assertTrue($tarjeta->cargarSaldo(150));
         $boleto = $colectivo->pagarCon($tarjeta);
@@ -18,6 +19,9 @@ class ColectivoTest extends TestCase{
         $this->expectExceptionMessage('Saldo insuficiente');
         $colectivo->pagarCon($tarjeta);
         $this->assertInstanceOf(Boleto::class, $boleto);
+        $this->assertTrue($tarjeta->cargarSaldo(350));
+        $boleto = $colectivo->pagarCon($tarjeta);
+        $this->assertEquals("Operacion exitosa. Abona saldo negativo.", $status_operacion);
 
         $this->assertTrue($medioBoleto->cargarSaldo(150));
         $boleto = $colectivo->pagarCon($medioBoleto);
