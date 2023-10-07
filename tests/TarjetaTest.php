@@ -28,6 +28,11 @@ class TarjetaTest extends TestCase{
         $pruebaExcedente = $excedente;
         $this->assertEquals(1700, $pruebaExcedente);
 
+        $saldo = 0;
+        $tarjeta->cargarSaldo(4000);
+        $pruebaSaldo = $tarjeta->verSaldo();
+        $this->assertEquals(5700, $pruebaSaldo);
+
         $pruebaSaldo = $tarjeta->verSaldo();
         $this->assertEquals(4300, $pruebaSaldo);
     }
