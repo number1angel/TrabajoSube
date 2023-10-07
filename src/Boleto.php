@@ -20,7 +20,7 @@ class Boleto{
             $this->status_operacion = "Operacion exitosa. Abona saldo negativo";
         }
         else {
-            $this->status_operacion = "Operacion exitosa"
+            $this->status_operacion = "Operacion exitosa";
         }
     }  
 }
