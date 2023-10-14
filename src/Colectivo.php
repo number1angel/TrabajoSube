@@ -5,6 +5,7 @@ class SaldoInsuficienteException extends \Exception {}
 
 class Colectivo{
     public $tarifa;
+    private $status_operacion;
     public function __construct($tarifa = 120) {
         $this->tarifa = $tarifa;
     }
@@ -17,9 +18,8 @@ class Colectivo{
             return "Operacion exitosa";
         }
     }   
-    public function pagarCon($Tarjeta, $Boleto): Boleto{
+    public function pagarCon($Tarjeta): Boleto{
         $saldo = $Tarjeta->getSaldo();
-        $status_operacion = $Boleto->getStatus();
         if (($saldo - $this->tarifa) >= -211.84){
             $status_operacion = $this->mensaje();
             $Tarjeta->pagarTarifa($this->tarifa);
