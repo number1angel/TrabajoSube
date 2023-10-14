@@ -9,7 +9,7 @@ class Colectivo{
         $this->tarifa = $tarifa;
     }
     public function mensaje() { //ESTA MAL CORREGIR
-        $saldo = $Tarjeta->verSaldo();
+        $saldo = $Tarjeta->getSaldo();
         if ($saldo < 0) {
             return "Operacion exitosa. Abona saldo negativo";
         }
@@ -18,13 +18,13 @@ class Colectivo{
         }
     }   
     public function pagarCon($Tarjeta): Boleto{
-        $saldo = $Tarjeta->verSaldo();
+        $saldo = $Tarjeta->getSaldo();
         $status_operacion = $Boleto->getStatus();
         if (($saldo - $this->tarifa) >= -211.84){
             $status_operacion = $this->mensaje();
             $Tarjeta->pagarTarifa($this->tarifa);
             $Tarjeta->sumaExcedente();
-            $saldo = $Tarjeta->verSaldo();
+            $saldo = $Tarjeta->getSaldo();
             return new Boleto($saldo, $status_operacion);
         }
         else{

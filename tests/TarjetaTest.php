@@ -9,31 +9,31 @@ class TarjetaTest extends TestCase{
         $tarjeta = new Tarjeta();
         
         $this->assertTrue($tarjeta->cargarSaldo(300));
-        $pruebaSaldo = $tarjeta->verSaldo();
+        $pruebaSaldo = $tarjeta->getSaldo();
         $this->assertEquals(300, $pruebaSaldo);
         
         $this->expectExceptionMessage('Monto no permitido.');
         $tarjeta->cargarSaldo(50);
 
-        $pruebaSaldo = $tarjeta->verSaldo();
+        $pruebaSaldo = $tarjeta->getSaldo();
         $this->assertEquals(300, $pruebaSaldo);
 
         $tarjeta->cargarSaldo(4000);
-        $pruebaSaldo = $tarjeta->verSaldo();
+        $pruebaSaldo = $tarjeta->getSaldo();
         $this->assertEquals(4300, $pruebaSaldo);
 
         $tarjeta->cargarSaldo(4000);
-        $pruebaSaldo = $tarjeta->verSaldo();
+        $pruebaSaldo = $tarjeta->getSaldo();
         $this->assertEquals(6600, $pruebaSaldo);
         $pruebaExcedente = $excedente;
         $this->assertEquals(1700, $pruebaExcedente);
 
         $saldo = 0;
         $tarjeta->cargarSaldo(4000);
-        $pruebaSaldo = $tarjeta->verSaldo();
+        $pruebaSaldo = $tarjeta->getSaldo();
         $this->assertEquals(5700, $pruebaSaldo);
 
-        $pruebaSaldo = $tarjeta->verSaldo();
+        $pruebaSaldo = $tarjeta->getSaldo();
         $this->assertEquals(4300, $pruebaSaldo);
     }
 }
