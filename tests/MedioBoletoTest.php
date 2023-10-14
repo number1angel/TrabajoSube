@@ -9,7 +9,7 @@ class MedioBoletoTest extends TestCase{
         $medioBoleto = new medioBoleto();
         
         $this->assertTrue($medioBoleto->cargarSaldo(300));
-        $pruebaSaldo = $medioBoleto->verSaldo();
+        $pruebaSaldo = $medioBoleto->getSaldo();
         $this->assertEquals(300, $pruebaSaldo);
         
         

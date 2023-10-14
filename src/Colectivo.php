@@ -9,7 +9,7 @@ class Colectivo{
     public function __construct($tarifa = 120) {
         $this->tarifa = $tarifa;
     }
-    public function mensaje() { //ESTA MAL CORREGIR
+    public function mensaje($Tarjeta) { //ESTA MAL CORREGIR
         $saldo = $Tarjeta->getSaldo();
         if ($saldo < 0) {
             return "Operacion exitosa. Abona saldo negativo";
