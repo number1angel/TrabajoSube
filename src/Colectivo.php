@@ -21,7 +21,7 @@ class Colectivo{
     public function pagarCon($Tarjeta): Boleto{
         $saldo = $Tarjeta->getSaldo();
         if (($saldo - $this->tarifa) >= -211.84){
-            $status_operacion = $this->mensaje();
+            $status_operacion = $this->mensaje($Tarjeta);
             $Tarjeta->pagarTarifa($this->tarifa);
             $Tarjeta->sumaExcedente();
             $saldo = $Tarjeta->getSaldo();
