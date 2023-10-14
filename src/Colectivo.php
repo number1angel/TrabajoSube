@@ -10,9 +10,9 @@ class Colectivo{
         $this->tarifa = $tarifa;
     }
     public function mensaje($Tarjeta) { //ESTA MAL CORREGIR
-        $saldo = $Tarjeta->getSaldo();
-        if ($saldo < 0) {
-            return "Operacion exitosa. Abona saldo negativo";
+        $negativo = $Tarjeta->getNegativo();
+        if ($negativo == 1) {
+            return "Operacion exitosa. Abono saldo negativo en ultima carga";
         }
         else {
             return "Operacion exitosa";
