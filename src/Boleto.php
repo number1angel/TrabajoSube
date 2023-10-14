@@ -13,5 +13,8 @@ class Boleto{
     public function __construct($saldo_restante, $status_operacion) {
         $this->saldo_restante = $saldo_restante;
         $this->status_operacion = $status_operacion;
+    }
+    public function getStatus(){
+        return $this->status_operacion;
     }  
 }

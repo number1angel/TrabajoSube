@@ -13,18 +13,25 @@ class Tarjeta{
         $this->saldo = 0;
         $this->excedente = 0;
     }
-    public function verSaldo(){
+    public function getSaldo(){
         return $this->saldo;
     }
-    public function updateSaldo($carga){
-        if (($carga + $this->saldo + $this->excedente) <= 6600){
-            $this->saldo += ($carga + $excedente);
-        }
-        else{
-            $this->saldo = 6600;
-            $this->excedente += ($carga + $this->saldo + $this->excedente) - 6600;
-        }
+    public function getExcedente(){
+        return $this->excedente;
     }
+    public function updateSaldo($carga){
+            $this->saldo += $carga;
+    }
+    public function sumaExcedente() {
+        if ($this->excedente + $this->saldo <= 6600) {
+            $this->saldo += $this->excedente;
+            $this->excedente = 0;
+        }
+        else {
+            $this->excedente -= (6600 - $this->saldo);
+            $this->saldo = 6600;
+        }
+    } 
     public function cargarSaldo($carga): Bool{
         if (in_array($carga, $this->cargasPermitidas)){
             if ($carga + $this->saldo <= 6600){

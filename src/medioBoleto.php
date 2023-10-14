@@ -1,22 +1,19 @@
 <?php
 namespace TrabajoSube;
 
-interface TiempoInterface {
-
-    public function time();
-
-}
-
-class Tiempo implements TiempoInterface {
-
-    public function time() {
-        return time();
-    }
-
-}
-    
 class medioBoleto extends Tarjeta{
+    
+    public function __construct() {
+        $this->ultimoUso = 0;
+    }
+    
     public function pagarTarifa($tarifa){
-    $this->updateSaldo(-$tarifa/2);
+        if (time() - $this->ultimoUso >= 300){
+            $this->updateSaldo(-$tarifa/2);
+        }
+        else{
+            $this->updateSaldo(-$tarifa);
+        }
+        $this->ultimoUso = time();
     }
 }
