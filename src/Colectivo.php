@@ -17,7 +17,7 @@ class Colectivo{
             return "Operacion exitosa";
         }
     }   
-    public function pagarCon($Tarjeta): Boleto{
+    public function pagarCon($Tarjeta, $Boleto): Boleto{
         $saldo = $Tarjeta->getSaldo();
         $status_operacion = $Boleto->getStatus();
         if (($saldo - $this->tarifa) >= -211.84){
