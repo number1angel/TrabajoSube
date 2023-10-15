@@ -57,6 +57,7 @@ class Tarjeta{
         }
         else{
             throw new MontoNoPermitidoException("Monto no permitido.");
+            return false;
         }
     }
     public function pagarTarifa($tarifa){

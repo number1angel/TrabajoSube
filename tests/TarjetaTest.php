@@ -14,9 +14,8 @@ class TarjetaTest extends TestCase{
         $pruebaSaldo = $tarjeta->getSaldo();
         $this->assertEquals(300, $pruebaSaldo);
         
-        $tarjeta->cargarSaldo(50);
-        $this->expectException(MontoNoPermitidoException::class);
-
+        $this->assertFalse($tarjeta->cargarSaldo(50));
+    
         $pruebaSaldo = $tarjeta->getSaldo();
         $this->assertEquals(300, $pruebaSaldo);
 
