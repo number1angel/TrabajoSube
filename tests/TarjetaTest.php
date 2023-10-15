@@ -5,9 +5,10 @@ namespace TrabajoSube;
 use PHPUnit\Framework\TestCase;
 
 class TarjetaTest extends TestCase{ 
-    public function tests(){
+    public function testTarjeta(){
         $tarjeta = new Tarjeta();
         $colectivo = new Colectivo();
+        new MontoNoPermitidoException();
         
         $this->assertTrue($tarjeta->cargarSaldo(300));
         $pruebaSaldo = $tarjeta->getSaldo();
@@ -26,13 +27,13 @@ class TarjetaTest extends TestCase{
         $tarjeta->cargarSaldo(4000);
         $pruebaSaldo = $tarjeta->getSaldo();
         $this->assertEquals(6600, $pruebaSaldo);
-        $pruebaExcedente = $excedente;
+        $pruebaExcedente = $tarjeta->getExcedente();
         $this->assertEquals(1700, $pruebaExcedente);
 
         $colectivo->pagarCon($tarjeta);
         $pruebaSaldo = $tarjeta->getSaldo();
         $this->assertEquals(6600, $pruebaSaldo);
-        $pruebaExcedente = $excedente;
+        $pruebaExcedente = $tarjeta->getExcedente();
         $this->assertEquals(1580, $pruebaExcedente);
     }
 }

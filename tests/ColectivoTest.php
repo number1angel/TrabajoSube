@@ -5,7 +5,7 @@ namespace TrabajoSube;
 use PHPUnit\Framework\TestCase;
 
 class ColectivoTest extends TestCase{ 
-    public function tests(){
+    public function testColectivo(){
         $colectivo = new Colectivo();
         $tarjeta = new Tarjeta();
         $medioBoleto = new medioBoleto();
