@@ -8,7 +8,7 @@ class TarjetaTest extends TestCase{
     public function testTarjeta(){
         $tarjeta = new Tarjeta();
         $colectivo = new Colectivo();
-        new MontoNoPermitidoException();
+        //new MontoNoPermitidoException();
         
         $this->assertTrue($tarjeta->cargarSaldo(300));
         $pruebaSaldo = $tarjeta->getSaldo();
