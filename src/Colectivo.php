@@ -12,10 +12,10 @@ class Colectivo{
     public function mensaje($Tarjeta) { //ESTA MAL CORREGIR
         $negativo = $Tarjeta->getNegativo();
         if ($negativo == 1) {
-            $status_operacion = "Operacion exitosa. Abono saldo negativo en ultima carga";
+            $this->status_operacion = "Operacion exitosa. Abono saldo negativo en ultima carga";
         }
         else {
-            $status_operacion = "Operacion exitosa";
+            $this->status_operacion = "Operacion exitosa";
         }
     }   
     public function pagarCon($Tarjeta){
