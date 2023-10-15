@@ -7,6 +7,7 @@ use PHPUnit\Framework\TestCase;
 class TarjetaTest extends TestCase{ 
     public function testGetlinea(){
         $tarjeta = new Tarjeta();
+        $colectivo = new Colectivo();
         
         $this->assertTrue($tarjeta->cargarSaldo(300));
         $pruebaSaldo = $tarjeta->getSaldo();
@@ -28,12 +29,10 @@ class TarjetaTest extends TestCase{
         $pruebaExcedente = $excedente;
         $this->assertEquals(1700, $pruebaExcedente);
 
-        $saldo = 0;
-        $tarjeta->cargarSaldo(4000);
+        $colectivo->pagarCon($tarjeta);
         $pruebaSaldo = $tarjeta->getSaldo();
-        $this->assertEquals(5700, $pruebaSaldo);
-
-        $pruebaSaldo = $tarjeta->getSaldo();
-        $this->assertEquals(4300, $pruebaSaldo);
+        $this->assertEquals(6600, $pruebaSaldo);
+        $pruebaExcedente = $excedente;
+        $this->assertEquals(1580, $pruebaExcedente);
     }
 }
