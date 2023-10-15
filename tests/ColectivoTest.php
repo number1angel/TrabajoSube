@@ -20,7 +20,8 @@ class ColectivoTest extends TestCase{
         $this->assertInstanceOf(Boleto::class, $boleto);
         $this->assertTrue($tarjeta->cargarSaldo(350));
         $boleto = $colectivo->pagarCon($tarjeta);
-        $this->assertEquals("Operacion exitosa. Abona saldo negativo.", $status_operacion);
+        $status_operacion = $Colectivo->getStatus();
+        $this->assertEquals("Operacion exitosa. Abono saldo negativo en ultima carga", $status_operacion);
 
         $this->assertTrue($medioBoleto->cargarSaldo(150));
         $boleto = $colectivo->pagarCon($medioBoleto);

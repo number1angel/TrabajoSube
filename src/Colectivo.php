@@ -32,5 +32,7 @@ class Colectivo{
             return false;
         }
     }
-
+    public function getStatus(){
+        return $this->status_operacion;
+    }  
 }
