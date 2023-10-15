@@ -1,7 +1,7 @@
 <?php
 namespace TrabajoSube;
 
-class SaldoInsuficienteException extends \Exception {}
+//class SaldoInsuficienteException extends \Exception {}
 
 class Colectivo{
     public $tarifa;
@@ -28,7 +28,8 @@ class Colectivo{
             return new Boleto($saldo, $status_operacion);
         }
         else{
-            throw new SaldoInsuficienteException("Saldo insuficiente");
+            //throw new SaldoInsuficienteException("Saldo insuficiente");
+            return false;
         }
     }
 
