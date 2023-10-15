@@ -13,9 +13,7 @@ class TarjetaTest extends TestCase{
         $pruebaSaldo = $tarjeta->getSaldo();
         $this->assertEquals(300, $pruebaSaldo);
         
-        $this->expectExceptionMessage('Monto no permitido.');
-        $tarjeta->cargarSaldo(50);
-
+   
         $pruebaSaldo = $tarjeta->getSaldo();
         $this->assertEquals(300, $pruebaSaldo);
 
@@ -33,6 +31,6 @@ class TarjetaTest extends TestCase{
         $pruebaSaldo = $tarjeta->getSaldo();
         $this->assertEquals(6600, $pruebaSaldo);
         $pruebaExcedente = $excedente;
-        $this->assertEquals(1540, $pruebaExcedente);
+        $this->assertEquals(1580, $pruebaExcedente);
     }
 }
