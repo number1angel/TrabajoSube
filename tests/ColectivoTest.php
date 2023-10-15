@@ -5,7 +5,7 @@ namespace TrabajoSube;
 use PHPUnit\Framework\TestCase;
 
 class ColectivoTest extends TestCase{ 
-    public function testGetlinea(){
+    public function tests(){
         $colectivo = new Colectivo();
         $tarjeta = new Tarjeta();
         $medioBoleto = new medioBoleto();
@@ -47,6 +47,6 @@ class ColectivoTest extends TestCase{
         $colectivo->pagarCon($boletoGratuito);
         $this->assertInstanceOf(Boleto::class, $boleto);
         $pruebaSaldo = $boletoGratuito->getSaldo();
-        $this->assertEquals(150, $pruebaSaldo);
+        $this->assertEquals(0, $pruebaSaldo);
     }
 }    

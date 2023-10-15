@@ -5,7 +5,7 @@ namespace TrabajoSube;
 use PHPUnit\Framework\TestCase;
 
 class TarjetaTest extends TestCase{ 
-    public function testGetlinea(){
+    public function tests(){
         $tarjeta = new Tarjeta();
         $colectivo = new Colectivo();
         
