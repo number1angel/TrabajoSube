@@ -9,19 +9,19 @@ class Colectivo{
     public function __construct($tarifa = 120) {
         $this->tarifa = $tarifa;
     }
-    public function mensaje($Tarjeta) { //ESTA MAL CORREGIR
+    public function mensaje() { //ESTA MAL CORREGIR
         $negativo = $Tarjeta->getNegativo();
         if ($negativo == 1) {
-            return "Operacion exitosa. Abono saldo negativo en ultima carga";
+            $status_operacion = "Operacion exitosa. Abono saldo negativo en ultima carga";
         }
         else {
-            return "Operacion exitosa";
+            $status_operacion = "Operacion exitosa";
         }
     }   
     public function pagarCon($Tarjeta){
         $saldo = $Tarjeta->getSaldo();
         if (($saldo - $this->tarifa) >= -211.84){
-            $status_operacion = $this->mensaje($Tarjeta);
+            $this->mensaje();
             $Tarjeta->pagarTarifa($this->tarifa);
             $Tarjeta->sumaExcedente();
             $saldo = $Tarjeta->getSaldo();
