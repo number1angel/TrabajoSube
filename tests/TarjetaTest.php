@@ -31,7 +31,7 @@ class TarjetaTest extends TestCase{
 
         $colectivo->pagarCon($tarjeta);
         $pruebaSaldo = $tarjeta->getSaldo();
-        $this->assertEquals(6600, $prueb
+        $this->assertEquals(6600, $pruebaSaldo);
         $pruebaExcedente = $excedente;
         $this->assertEquals(1540, $pruebaExcedente);
     }
