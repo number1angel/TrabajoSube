@@ -1,7 +1,6 @@
 <?php
 namespace TrabajoSube;
 
-class SaldoExcedeLimiteException extends \Exception {}
 class MontoNoPermitidoException extends \Exception {}
 
 class Tarjeta{
