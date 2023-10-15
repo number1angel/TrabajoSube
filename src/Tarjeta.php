@@ -1,7 +1,7 @@
 <?php
 namespace TrabajoSube;
 
-class MontoNoPermitidoException extends \Exception {}
+//class MontoNoPermitidoException extends \Exception {}
 
 class Tarjeta{
     private $saldo;
@@ -56,7 +56,7 @@ class Tarjeta{
             }
         }
         else{
-            throw new MontoNoPermitidoException("Monto no permitido.");
+            //throw new MontoNoPermitidoException("Monto no permitido.");
             return false;
         }
     }
