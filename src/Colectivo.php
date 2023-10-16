@@ -4,12 +4,14 @@ namespace TrabajoSube;
 //class SaldoInsuficienteException extends \Exception {}
 
 class Colectivo{
-    public $tarifa;
+    public $tarifa = 120;
     private $status_operacion;
-    public function __construct($tarifa = 120) {
-        $this->tarifa = $tarifa;
+    private $tiempo;
+
+    public function __construct(TiempoInterface $tiempo) {
+        $this->tiempo = $tiempo;
     }
-    public function mensaje($Tarjeta) { //ESTA MAL CORREGIR
+    public function mensaje($Tarjeta) {
         $negativo = $Tarjeta->getNegativo();
         if ($negativo == 1) {
             $this->status_operacion = "Operacion exitosa. Abono saldo negativo en ultima carga";

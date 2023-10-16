@@ -7,7 +7,8 @@ use PHPUnit\Framework\TestCase;
 class TarjetaTest extends TestCase{ 
     public function testTarjeta(){
         $tarjeta = new Tarjeta();
-        $colectivo = new Colectivo();
+        $tiempoFalso = new tiempoFalso ();
+        $colectivo = new Colectivo($tiempoFalso);
         //new MontoNoPermitidoException();
         
         $this->assertTrue($tarjeta->cargarSaldo(300));
