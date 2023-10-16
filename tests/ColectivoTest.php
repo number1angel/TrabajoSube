@@ -5,12 +5,12 @@ namespace TrabajoSube;
 use PHPUnit\Framework\TestCase;
 
 class ColectivoTest extends TestCase{ 
-    public function testColectivo(){
+    public function testPasajeNormal(){
         $tarjeta = new Tarjeta();
-        $medioBoleto = new medioBoleto();
+        $tiempoFalso = new TiempoFalso(0);
+        $medioBoleto = new medioBoleto($tiempoFalso);
         $boletoGratuito = new boletoGratuito();
-        $tiempoFalso = new tiempoFalso();
-        $colectivo = new Colectivo($tiempoFalso);
+        $colectivo = new Colectivo();
         
         $this->assertTrue($tarjeta->cargarSaldo(150));
         $boleto = $colectivo->pagarCon($tarjeta);
@@ -23,16 +23,30 @@ class ColectivoTest extends TestCase{
         $boleto = $colectivo->pagarCon($tarjeta);
         $status_operacion = $colectivo->getStatus();
         $this->assertEquals("Operacion exitosa. Abono saldo negativo en ultima carga", $status_operacion);
-
+    }
+    public function testPasajeMedio(){
+        $tarjeta = new Tarjeta();
+        $tiempoFalso = new TiempoFalso(0);
+        $medioBoleto = new medioBoleto($tiempoFalso);
+        $boletoGratuito = new boletoGratuito();
+        $colectivo = new Colectivo();
+     
         $this->assertTrue($medioBoleto->cargarSaldo(150));
+        $tiempoFalso->avanzar(300);
         $boleto = $colectivo->pagarCon($medioBoleto);
         $boleto = $colectivo->pagarCon($medioBoleto);
-        $tiempoFalso->avanzar(350);
-        //sleep(300); (anda bien)
+        $tiempoFalso->avanzar(300);
         $boleto = $colectivo->pagarCon($medioBoleto);
         $pruebaSaldo = $medioBoleto->getSaldo();
-        $this->assertEquals(-210, $pruebaSaldo);
-
+        $this->assertEquals(-90, $pruebaSaldo);
+    }
+    public function testPasajeGratuito(){
+        $tarjeta = new Tarjeta();
+        $tiempoFalso = new TiempoFalso(0);
+        $medioBoleto = new medioBoleto($tiempoFalso);
+        $boletoGratuito = new boletoGratuito();
+        $colectivo = new Colectivo();
+        
         $this->assertTrue($boletoGratuito->cargarSaldo(150));
         $boleto = $colectivo->pagarCon($boletoGratuito);
         $boleto = $colectivo->pagarCon($boletoGratuito);

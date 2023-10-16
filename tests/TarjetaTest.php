@@ -5,35 +5,37 @@ namespace TrabajoSube;
 use PHPUnit\Framework\TestCase;
 
 class TarjetaTest extends TestCase{ 
-    public function testTarjeta(){
+    public function testMontoInvalido(){
         $tarjeta = new Tarjeta();
-        $tiempoFalso = new tiempoFalso ();
-        $colectivo = new Colectivo($tiempoFalso);
-        //new MontoNoPermitidoException();
+        $tiempoFalso = new TiempoFalso(0);
+        $colectivo = new Colectivo();
         
         $this->assertTrue($tarjeta->cargarSaldo(300));
         $pruebaSaldo = $tarjeta->getSaldo();
         $this->assertEquals(300, $pruebaSaldo);
         
         $this->assertFalse($tarjeta->cargarSaldo(50));
-    
-        $pruebaSaldo = $tarjeta->getSaldo();
-        $this->assertEquals(300, $pruebaSaldo);
+    }
+
+    public function testExcedente(){
+        $tarjeta = new Tarjeta();
+        $tiempoFalso = new TiempoFalso(0);
+        $colectivo = new Colectivo();
 
         $tarjeta->cargarSaldo(4000);
         $pruebaSaldo = $tarjeta->getSaldo();
-        $this->assertEquals(4300, $pruebaSaldo);
+        $this->assertEquals(4000, $pruebaSaldo);
 
         $tarjeta->cargarSaldo(4000);
         $pruebaSaldo = $tarjeta->getSaldo();
         $this->assertEquals(6600, $pruebaSaldo);
         $pruebaExcedente = $tarjeta->getExcedente();
-        $this->assertEquals(1700, $pruebaExcedente);
+        $this->assertEquals(1400, $pruebaExcedente);
 
         $colectivo->pagarCon($tarjeta);
         $pruebaSaldo = $tarjeta->getSaldo();
         $this->assertEquals(6600, $pruebaSaldo);
         $pruebaExcedente = $tarjeta->getExcedente();
-        $this->assertEquals(1580, $pruebaExcedente);
+        $this->assertEquals(1280, $pruebaExcedente);
     }
 }

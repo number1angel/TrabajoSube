@@ -4,12 +4,11 @@ namespace TrabajoSube;
 //class SaldoInsuficienteException extends \Exception {}
 
 class Colectivo{
-    public $tarifa = 120;
+    public $tarifa;
     private $status_operacion;
-    private $tiempo;
-
-    public function __construct(TiempoInterface $tiempo) {
-        $this->tiempo = $tiempo;
+    
+    public function __construct($tarifa = 120) {
+        $this->tarifa = $tarifa;
     }
     public function mensaje($Tarjeta) {
         $negativo = $Tarjeta->getNegativo();
