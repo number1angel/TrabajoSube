@@ -46,12 +46,14 @@ class ColectivoTest extends TestCase{
         $this->assertTrue($medioBoleto->cargarSaldo(250)); //quedo en 40 positivo
         $boleto = $colectivo->pagarCon($medioBoleto);
         $pruebaSaldo = $medioBoleto->getSaldo();
-        $this->assertEquals(-80, $pruebaSaldo);//puedo volver a usar el medio boleto. Puse 80 perp deberia ser 20. no se por que no anda ya revise todo.
+        $this->assertEquals(-20, $pruebaSaldo);//puedo volver a usar el medio boleto.
     }
     public function testPasajeGratuito(){
         $tiempoFalso = new TiempoFalso(0);
-        $boletoGratuito = new boletoGratuito();
         $colectivo = new Colectivo("126");
+        $tiempoPersonalizado = new TiempoFalso();
+        $tiempoPersonalizado->setDay('Mon'); 
+        $boletoGratuito = new boletoGratuito($tiempoPersonalizado);
         
         $this->assertTrue($boletoGratuito->cargarSaldo(150));
         $boleto = $colectivo->pagarCon($boletoGratuito);
@@ -59,7 +61,7 @@ class ColectivoTest extends TestCase{
         $tiempoFalso->avanzar(86900);
         $boleto = $colectivo->pagarCon($boletoGratuito);
         $pruebaSaldo = $boletoGratuito->getSaldo();
-        $this->assertEquals(30, $pruebaSaldo); //deberia ser 150. mismo problema del medio.
+        $this->assertEquals(30, $pruebaSaldo); //deberia ser 150. problema deL ITEM 2 ITERACION 4.
     }
     public function testInterurbano(){
         $tarjeta = new Tarjeta();

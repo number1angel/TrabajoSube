@@ -53,6 +53,7 @@ class TarjetaTest extends TestCase{
         $colectivo->pagarCon($tarjeta);
         $pruebaSaldo = $tarjeta->getSaldo();
         $this->assertEquals(314, $pruebaSaldo);//25%descuento
+        $this->assertEquals(80, $ficticios2);
 
         $tiempoFalso->avanzar(30 * 24 * 60 * 60);
         $colectivo->pagarCon($tarjeta);
