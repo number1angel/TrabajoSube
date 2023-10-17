@@ -40,3 +40,11 @@ class BoletoGratuito extends Tarjeta
         }
     }
 }
+
+class BoletoGratuitoJubilado extends Tarjeta
+{
+    public function pagarTarifa($tarifa)
+    {
+            $this->updateSaldo(0);
+        }
+}

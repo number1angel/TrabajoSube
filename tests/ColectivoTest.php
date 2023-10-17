@@ -65,6 +65,22 @@ class ColectivoTest extends TestCase{
         $pruebaSaldo = $boletoGratuito->getSaldo();
         $this->assertEquals(30, $pruebaSaldo);
     }
+    public function testJubilado(){
+        $tiempoFalso = new TiempoFalso(0);
+        $jubilado = new boletoGratuitoJubilado($tiempoFalso);
+        $colectivo = new Colectivo("116");
+        
+        $this->assertTrue($jubilado->cargarSaldo(150));
+        $boleto = $colectivo->pagarCon($jubilado);
+        $boleto = $colectivo->pagarCon($jubilado);
+        $boleto = $colectivo->pagarCon($jubilado);
+        $boleto = $colectivo->pagarCon($jubilado);
+        $boleto = $colectivo->pagarCon($jubilado);
+        $boleto = $colectivo->pagarCon($jubilado);
+        $pruebaSaldo = $jubilado->getSaldo();
+        $this->assertEquals(150, $pruebaSaldo);
+        $this->assertInstanceOf(Boleto::class, $boleto);
+    }    
     public function testInterurbano(){
         $tiempoFalso = new TiempoFalso(0);
         $tarjeta = new Tarjeta($tiempoFalso);
