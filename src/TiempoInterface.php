@@ -4,9 +4,9 @@ namespace TrabajoSube;
 interface TiempoInterface{
 public function time();
 public function day();
-public function weekday();
-public function reloj24hs();
-public function month();
+//public function weekday();
+//public function reloj24hs();
+//public function month();
 }
 
 class Tiempo implements TiempoInterface{
@@ -16,7 +16,7 @@ class Tiempo implements TiempoInterface{
     public function day() {
         return date('d');
     }
-    public function weekday(){
+    /*public function weekday(){
         return date('D');
     }
     public function reloj24hs(){
@@ -24,5 +24,5 @@ class Tiempo implements TiempoInterface{
     }
     public function month(){
         return date('M');
-    }
+    }8*/
 }
