@@ -59,6 +59,10 @@ class ColectivoTest extends TestCase{
         $boleto = $colectivo->pagarCon($boletoGratuito);
         $pruebaSaldo = $boletoGratuito->getSaldo();
         $this->assertEquals(150, $pruebaSaldo);//anda el gratuito al dia siguiente.
+        $boleto = $colectivo->pagarCon($boletoGratuito);
+        $boleto = $colectivo->pagarCon($boletoGratuito);
+        $pruebaSaldo = $boletoGratuito->getSaldo();
+        $this->assertEquals(30, $pruebaSaldo);
     }
     public function testInterurbano(){
         $tarjeta = new Tarjeta();
