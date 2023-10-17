@@ -3,26 +3,26 @@ namespace TrabajoSube;
 
 class BoletoGratuito extends Tarjeta
 {
-    private $viajesGratuitosHoy;
+    private $cantidad;
     private $ultimoDia;
 
     public function __construct()
     {
-        $this->viajesGratuitosHoy = 0;
+        $this->cantidad = 0;
         $this->ultimoDia = date('d');
     }
 
     public function pagarTarifa($tarifa)
     {
-        $hoy = date('d');
-        if ($hoy !== $this->ultimoDia) {
-            $this->viajesGratuitosHoy = 0;
-            $this->ultimoDia = $hoy;
+        $today = date('d');
+        if ($today !== $this->ultimoDia) {
+            $this->cantidad = 0;
+            $this->ultimoDia = $today;
         }
 
-        if ($this->viajesGratuitosHoy < 2) {
+        if ($this->cantidad < 2) {
             $this->updateSaldo(0);
-            $this->viajesGratuitosHoy++;
+            $this->cantidad++;
         } else {
             $this->updateSaldo(-$tarifa);
         }

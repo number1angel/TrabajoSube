@@ -22,7 +22,6 @@ class ColectivoTest extends TestCase{
         $this->assertEquals("Operacion exitosa. Abono saldo negativo en ultima carga", $status_operacion);
     }
     public function testPasajeMedio(){
-        $tarjeta = new Tarjeta();
         $tiempoFalso = new TiempoFalso(0);
         $medioBoleto = new medioBoleto($tiempoFalso);
         $colectivo = new Colectivo("127");
@@ -50,7 +49,6 @@ class ColectivoTest extends TestCase{
         $this->assertEquals(-80, $pruebaSaldo);//puedo volver a usar el medio boleto. Puse 80 perp deberia ser 20. no se por que no anda ya revise todo.
     }
     public function testPasajeGratuito(){
-        $tarjeta = new Tarjeta();
         $tiempoFalso = new TiempoFalso(0);
         $boletoGratuito = new boletoGratuito();
         $colectivo = new Colectivo("126");
