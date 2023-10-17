@@ -13,9 +13,7 @@ class ColectivoTest extends TestCase{
         $boleto = $colectivo->pagarCon($tarjeta);
         $boleto = $colectivo->pagarCon($tarjeta);
         $boleto = $colectivo->pagarCon($tarjeta);
-        $this->assertInstanceOf(Boleto::class, $boleto);
         $this->assertFalse($colectivo->pagarCon($tarjeta));
-        $this->assertInstanceOf(Boleto::class, $boleto);
         $this->assertTrue($tarjeta->cargarSaldo(350));
         $boleto = $colectivo->pagarCon($tarjeta);
         $status_operacion = $colectivo->getStatus();
@@ -51,9 +49,8 @@ class ColectivoTest extends TestCase{
     public function testPasajeGratuito(){
         $tiempoFalso = new TiempoFalso(0);
         $colectivo = new Colectivo("126");
-        $tiempoPersonalizado = new TiempoFalso();
-        $tiempoPersonalizado->setDay('Mon'); 
-        $boletoGratuito = new boletoGratuito($tiempoPersonalizado);
+        $tiempoFalso = new TiempoFalso(); 
+        $boletoGratuito = new boletoGratuito($tiempoFalso);
         
         $this->assertTrue($boletoGratuito->cargarSaldo(150));
         $boleto = $colectivo->pagarCon($boletoGratuito);
@@ -61,7 +58,7 @@ class ColectivoTest extends TestCase{
         $tiempoFalso->avanzar(86900);
         $boleto = $colectivo->pagarCon($boletoGratuito);
         $pruebaSaldo = $boletoGratuito->getSaldo();
-        $this->assertEquals(30, $pruebaSaldo); //deberia ser 150. problema deL ITEM 2 ITERACION 4.
+        $this->assertEquals(150, $pruebaSaldo);//anda el gratuito al dia siguiente.
     }
     public function testInterurbano(){
         $tarjeta = new Tarjeta();

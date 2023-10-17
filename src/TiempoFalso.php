@@ -6,7 +6,6 @@ class TiempoFalso implements TiempoInterface {
     protected $dia;
     protected $segundos;
     protected $diaSemana;
-    protected $semana = array("Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun");
     protected $mes;
     
     public function __construct($iniciarEn = 0) {
@@ -35,13 +34,5 @@ class TiempoFalso implements TiempoInterface {
 
     public function month(){
         return $this->mes;
-    }
-
-    public function setDay($day) {
-        if (in_array($day, $this->semana)) {
-            $this->diaSemana = $day;
-        } else {
-            return false;
-        }
     }
 }
