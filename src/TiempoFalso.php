@@ -5,8 +5,8 @@ class TiempoFalso implements TiempoInterface {
     protected $tiempo;
     protected $dia;
     protected $segundos;
-    protected $diaSemana;
-    protected $mes;
+    //protected $diaSemana;
+    //protected $mes;
     
     public function __construct($iniciarEn = 0) {
         $this->tiempo = $iniciarEn;
@@ -24,7 +24,7 @@ class TiempoFalso implements TiempoInterface {
         return date('d', $this->tiempo);
     }
 
-    public function reloj24hs(){
+    /*public function reloj24hs(){
         return intdiv($this->segundos, 3600);
     }
 
@@ -34,5 +34,5 @@ class TiempoFalso implements TiempoInterface {
 
     public function month(){
         return $this->mes;
-    }
+    } esto usaba en item 2 iteracion 4*/
 }
