@@ -63,4 +63,14 @@ class ColectivoTest extends TestCase{
         $pruebaSaldo = $boletoGratuito->getSaldo();
         $this->assertEquals(30, $pruebaSaldo); //deberia ser 150. mismo problema del medio.
     }
-}    
+    public function testInterurbano(){
+        $tarjeta = new Tarjeta();
+        $colectivo = new ColectivoInterurbano("M");
+        
+        $this->assertTrue($tarjeta->cargarSaldo(150));
+        $boleto = $colectivo->pagarCon($tarjeta);
+        $pruebaSaldo = $tarjeta->getSaldo();
+        $this->assertEquals(-34, $pruebaSaldo);
+        $this->assertInstanceOf(Boleto::class, $boleto);
+    }    
+}
