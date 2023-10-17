@@ -9,7 +9,8 @@ class BoletoTest extends TestCase{
     public function testBoleto(){
         $tiempo = new Tiempo();
         $colectivo = new Colectivo("Q");
-        $tarjeta = new Tarjeta();
+        $tiempoFalso = new TiempoFalso(0);
+        $tarjeta = new Tarjeta($tiempoFalso);
         $tarjeta->cargarSaldo(300);
         $this->assertInstanceOf(Boleto::class, $colectivo->pagarCon($tarjeta));
     }

@@ -24,5 +24,5 @@ class Tiempo implements TiempoInterface{
     }
     public function month(){
         return date('M');
-    }8*/
+    }*/
 }

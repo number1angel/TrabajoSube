@@ -7,14 +7,16 @@ class Tarjeta{
     private $excedente;
     private $saldoNegativo;
     private $viajesRealizados;
+    private $tiempo;
     private $mesActual;
 
-    public function __construct() {
+    public function __construct(TiempoInterface $tiempo) {
         $this->saldo = 0;
         $this->excedente = 0;
         $this->saldoNegativo = 0;
         $this->viajesRealizados = 0;
-        $this->mesActual = date('n');
+        $this->tiempo = $tiempo;
+        $this->mesActual = $tiempo->time();
     }
 
     public function getSaldo(){
@@ -72,7 +74,6 @@ class Tarjeta{
             }
         }
         else{
-            //throw new MontoNoPermitidoException("Monto no permitido.");
             return false;
         }
     }
@@ -80,8 +81,8 @@ class Tarjeta{
     public function pagarTarifa($tarifa){
         $this->viajesRealizados++;
         
-        $mesActualNuevo = date('n');
-        if ($mesActualNuevo != $this->mesActual) {
+        $mesActualNuevo = $this->tiempo->time();
+        if (($mesActualNuevo - $this->mesActual)>=(30 * 24 * 60 * 60)) {
             $this->viajesRealizados = 0;
             $this->mesActual = $mesActualNuevo;
         }

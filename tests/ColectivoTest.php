@@ -6,7 +6,8 @@ use PHPUnit\Framework\TestCase;
 
 class ColectivoTest extends TestCase{ 
     public function testPasajeNormal(){
-        $tarjeta = new Tarjeta();
+        $tiempoFalso = new TiempoFalso(0);
+        $tarjeta = new Tarjeta($tiempoFalso);
         $colectivo = new Colectivo("127");
         
         $this->assertTrue($tarjeta->cargarSaldo(150));
@@ -65,7 +66,8 @@ class ColectivoTest extends TestCase{
         $this->assertEquals(30, $pruebaSaldo);
     }
     public function testInterurbano(){
-        $tarjeta = new Tarjeta();
+        $tiempoFalso = new TiempoFalso(0);
+        $tarjeta = new Tarjeta($tiempoFalso);
         $colectivo = new ColectivoInterurbano("M");
         
         $this->assertTrue($tarjeta->cargarSaldo(150));
