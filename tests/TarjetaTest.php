@@ -8,7 +8,7 @@ class TarjetaTest extends TestCase{
     public function testMontoInvalido(){
         $tarjeta = new Tarjeta();
         $tiempoFalso = new TiempoFalso(0);
-        $colectivo = new Colectivo();
+        $colectivo = new Colectivo(128);
         
         $this->assertTrue($tarjeta->cargarSaldo(300));
         $pruebaSaldo = $tarjeta->getSaldo();
@@ -20,7 +20,7 @@ class TarjetaTest extends TestCase{
     public function testExcedente(){
         $tarjeta = new Tarjeta();
         $tiempoFalso = new TiempoFalso(0);
-        $colectivo = new Colectivo();
+        $colectivo = new Colectivo(127);
 
         $tarjeta->cargarSaldo(4000);
         $pruebaSaldo = $tarjeta->getSaldo();
